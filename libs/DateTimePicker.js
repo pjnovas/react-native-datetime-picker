@@ -5,9 +5,12 @@ var {
     Platform
 } = React;
 
-var DateTimePickerAndroid = require('./DateTimePicker.android.js');
-var DateTimePickerIOS= require('./DateTimePicker.ios.js');
-var DateTimePicker = (Platform.OS === 'android') ? DateTimePickerAndroid : DateTimePickerIOS;
+var DatePicker;
+if (Platform.OS === 'android'){
+  DatePicker = require('./DateTimePicker.android.js');
+}
+else {
+  DatePicker = require('./DateTimePicker.ios.js');
+}
 
-
-module.exports = DateTimePicker;
+module.exports = DatePicker;
